@@ -24,7 +24,7 @@ export default class Start extends React.Component {
                     source={require('../assets/background-image.png')}
                     style={[styles.container, styles.image]}
                 >
-                    <Text style={styles.title}>App Title</Text>
+                    <Text style={styles.title}>Chat App</Text>
                     <View style={styles.inputBox}>
                         <TextInput
                             style={styles.nameBox}
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         width: '88%',
         borderWidth: 1,
         borderColor: 'grey',
-        borderRadius: '2',
+        borderRadius: 2,
         fontSize: 16,
         fontWeight: '300',
         color: '#757083',
