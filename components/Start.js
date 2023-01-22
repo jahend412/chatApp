@@ -19,7 +19,7 @@ export default class Start extends React.Component {
         const { black, purple, grey, green } = backgroundColors;
 
         return (
-            <View style={Styles.container}>
+            <View style={styles.container}>
                 <ImageBackground
                     source={require('../assets/background-image.png')}
                     style={[styles.container, styles.image]}
