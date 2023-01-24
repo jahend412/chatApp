@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
         fontSize: 50,
         fontWeight: '600',
         color: '#fff',
-        marginTop: 60
+        marginTop: 60,
+        alignItems: 'center',
     },
     inputBox: {
         backgroundColor: '#fff',
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '300',
         color: '#757083',
-        opacity: 50
+        opacity: 50,
     },
     colorText: {
         textAlign: 'center',

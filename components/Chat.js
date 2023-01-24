@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text, Button, TextInput, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import { GiftedChat, Bubble, } from 'react-native-gifted-chat';
 
+// add firebase to the project
+const firebase = require('firebase');
+require('firebase/firestore');
 
 export default class Chat extends React.Component {
   constructor() {
@@ -9,7 +12,24 @@ export default class Chat extends React.Component {
     this.state = {
       messages: [],
     }
+
+    // Firebase configuration to connect to Firestore.  This is still in the constructor of Chat
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: "AIzaSyC75WkpeAQJT66mor_dBNlU4zXWT_y0gvY",
+        authDomain: "chatapp-6684f.firebaseapp.com",
+        projectId: "chatapp-6684f",
+        storageBucket: "chatapp-6684f.appspot.com",
+        messagingSenderId: "9893667023",
+        appId: "1:9893667023:web:c85fd560371ab7c4cf97ba",
+        measurementId: "G-P4GH22N8PM"
+      });
+    }
+
+    // Create a reference to 'messages' collection in firebase
+    this.referenceChatMessages = firebase.firestore().collection('messages');
   }
+
 
   componentDidMount() {
     let name = this.props.route.params.name;
@@ -86,6 +106,7 @@ export default class Chat extends React.Component {
           user={{
             _id: 1,
           }}
+          // Allow accessiblity for those who require Screen Readers
           accessible={true}
           accessibilityLabel='Text message input field'
           accessibilityHint='You can type your message here and then you can send it by pressing the button located to the right.'
