@@ -1,15 +1,21 @@
+// React & React Native components
 import { TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
-import React from 'react'; import PropTypes from 'prop-types';
+import React from 'react'; 
+// import PropTypes
+import PropTypes from 'prop-types';
+// import permissions and imagepicker
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 import { useActionSheet } from '@expo/react-native-action-sheet';
+// storage imports
+import firebase from 'firebase';
 
 export default function CustomActions(props) {
     const { showActionSheetWithOptions } = useActionSheet();
 
     //If permission is granted, the user will have acess to image library to upload images
     const pickImage = async () => {
-        const { status } = await ImagePicker.getMediaLibraryPermissionsAsync();
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         try {
             if (status === 'granted') {
                 let result = await ImagePicker.launchImageLibraryAsync({
@@ -67,6 +73,41 @@ export default function CustomActions(props) {
         } catch (error) {
             console.error('getLocation', error);
         }
+    };
+
+    //Upload Images to Firebase Storage
+    const uploadImageFetch = async (uri) => {
+
+        // turn the file into a blob
+        const blob = await new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                resolve(xhr.response);
+            };
+            xhr.onerror = (e) => {
+                console.log(e);
+                reject(new TypeError('Network request failed'));
+            };
+
+            // Create a new XMLHttpRequest and set its responseType to 'blob'
+            xhr.responseType = 'blob';
+            // open the connection and retrieve the URI’s data (the image)
+            xhr.open('GET', uri, true);
+            xhr.send(null);
+        });
+
+        // Create a reference to the Firebase Storage
+        const imageNameBefore = uri.split('/');
+        const imageName = imageNameBefore[imageNameBefore.length -1];
+        
+        const ref = firebase.storage().ref().child('images/${imageName}');
+
+        // Store the content recieved from the Ajax request
+        const snapshot = await ref.put(blob);
+
+        blob.close();
+
+        return await snapshot.ref.getDownloadURL();
     };
 
     // Creates an ActionSheet that diesplays a set of defined actions. 
