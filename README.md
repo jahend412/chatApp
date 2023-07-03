@@ -23,20 +23,20 @@ This is a chat app for mobile devices built with React-Native.  It provides user
 
 ## Built With
 
-* expo
-* expo-image-picker
-* expo-location
-* expo-permissions
-* firebase
-* react
-* react-dom
-* react-native
-* react-native-gifted-chat
-* react-native-keyboard-spacer
-* react-native-maps
-* react-native-web
-* react-navigation
-* react-navigation-stack
+* [expo](https://docs.expo.dev/versions/latest/)
+* [expo-image-picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
+* [expo-location](https://docs.expo.dev/versions/latest/sdk/location/)
+* [expo-permissions](https://docs.expo.dev/guides/permissions/?redirected)
+* [firebase](https://firebase.google.com/docs/firestore/)
+* [react](https://react.dev/)
+* [react-dom](https://www.npmjs.com/package/react-dom)
+* [react-native](https://reactnative.dev/)
+* [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat)
+* [react-native-keyboard-spacer](https://www.npmjs.com/package/react-native-keyboard-spacer)
+* [react-native-maps](https://docs.expo.dev/versions/latest/sdk/map-view/?redirected)
+* [react-native-web](https://www.npmjs.com/package/react-native-web)
+* [react-navigation](https://reactnavigation.org/docs/getting-started/)
+* [react-navigation-stack](https://github.com/expo/react-navigation-stack)
 
 ## Database Information
 
