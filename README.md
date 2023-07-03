@@ -1,6 +1,6 @@
 # React Native Chat App
  
-This is a chat app for mobile devices built with React-Native.  It provides users with a chat interface where they can send/recieve text messages and images as well as share their location.  It was a project for my full-stack web development bootcamp with CareerFoundry.  
+This is a chat app for mobile devices built with React-Native.  It provides users with a chat interface where they can send/receive text messages and images as well as share their location.  It was a project for my full-stack web development bootcamp with CareerFoundry.  
 
 ## Demo
 
@@ -49,13 +49,9 @@ This project uses Google/Firebase for data storage.  If you encounter any issues
 3. Install Firestore via Firebase in your project: `npm install firebase`.
 4. Import Firestore in your `App.js` file:
 
-    <code>
-    const firebase = require('firebase');
-    </code>
+    <code>const firebase = require('firebase');</code>
     <br>
-    <code>
-    require('firebase/firestore');
-    </code>    
+    <code>require('firebase/firestore');</code>    
 
 1.  In the Firestore project in your browser, open "Settings" and then the "General" tab. Under the "Your apps" section, you can generate configurations for different platforms. Click "Firestore for Web" and copy the contents of the config object.
 
@@ -63,8 +59,7 @@ This project uses Google/Firebase for data storage.  If you encounter any issues
 
 Example:
 
-<code>
-firebase.initializeApp({ <br>
+<code>firebase.initializeApp({ <br>
   apiKey: "your-api-key", <br>
   authDomain: "your-authdomain",<br>
   databaseURL: "your-database-url",<br>
@@ -72,15 +67,12 @@ firebase.initializeApp({ <br>
   storageBucket: "your-storage-bucket",<br>
   messagingSenderId: "your-messaging-sender-id",<br>
   appId: "your-app-id"<br>
-});
-</code>
+});</code>
 
 ##### Note: Replace the configuration info with your own Firestore database details.
 
 1. Create a reference to the Firestore collection:
 
-<code>
-this.referenceMessages = firebase.firestore().collection('chat');
-</code>
+<code>this.referenceMessages = firebase.firestore().collection('chat');</code>
 
 Please let me know if there's anything else I can assist you with!
