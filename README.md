@@ -4,7 +4,7 @@ This is a chat app for mobile devices built with React-Native.  It provides user
 
 ## Demo
 
-![image](assets/chatdoc2.png)
+<img src="assets/chatdoc2.png" width='300px'>
 
 
 ## Prerequisites
